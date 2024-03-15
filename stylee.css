@@ -1,0 +1,109 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+body, ul, li {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+a {
+  color:inherit;
+  text-decoration:inherit;
+}
+
+body {
+    font-family:'Noto Sans KR', sans-serif;
+}
+
+#side-bar {
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:10%;
+  background-color:blue;
+  min-height:600px;
+  box-shadow:0 0 2px 2px rgba(0,0,0,0.15);
+  transition:all 0.3s;
+}
+#side-bar.active {
+  width:20%;
+}
+#side-bar .menu {
+  position:absolute;
+  top:7%;
+  right:100%;  
+}
+#side-bar.active .menu {
+  right:5%;
+}
+#side-bar .menu > ul > li > ul {
+  padding-left:20px;
+  margin-bottom:10px;
+  font-size:12px;
+}
+#side-bar .menu li > a {
+  color:white;
+  transition:color 0.3s;
+}
+#side-bar .menu li > a:hover {
+  color:black;
+}
+
+  
+
+
+
+.ico.ico-bars {
+    display:inline-block;
+    width:30px;
+    height:20px;
+    position:relative;
+    cursor:pointer;
+}
+.ico.ico-bars > div {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background-color:white;
+    transition:top 0.2s, bottom 0.2s,
+        transform 0.3s cubic-bezier(0.585, -0.6, 0.43, 1.65), visibility 0s 0.3s;
+}
+.ico.ico-bars > div:nth-child(2) {
+    top:50%;
+    transform:translateY(-50%);
+}
+.ico.ico-bars > div:first-child {
+    transform-origin : top left;
+}
+.ico.ico-bars > div:last-child {
+    top:auto;
+    bottom:0;
+    transform-origin : bottom left;
+}
+
+.ico.ico-bars:hover div:first-child {
+    top: -2px;
+}
+.ico.ico-bars:hover div:last-child {
+    bottom: -2px;
+}
+
+/*클릭이 되었을 때 효과*/
+.ico.ico-bars.active div:first-child {
+    top:-2px;
+    transform:rotate(45deg);
+}
+.ico.ico-bars.active div:last-child {
+    bottom:-2px;
+    transform:rotate(-45deg);
+}
+.ico.ico-bars.active div:nth-child(2){
+    visibility:hidden;
+    transition:visibility 0s 0s;
+}
+
+#side-bar .ico.ico-bars {
+    margin: 10px 0px 0px 10px;
+}
